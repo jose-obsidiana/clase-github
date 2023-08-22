@@ -1,0 +1,92 @@
+/* RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos Globales */
+
+body{
+    background-color: #0E0D0D;
+}
+
+/* Estilos de Header */
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Estilos del menú */
+
+header nav ul {  /* rutas de especificidad */
+    color: whitesmoke;
+    list-style: none; /* para quitar los puntos de una lista */
+    display: flex;
+    gap: 1.5rem;    
+}
+
+/* Estilos del main */
+main {
+    height: 70vh; /* viewport height */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 25%);
+    gap: 2rem;
+    margin: 3rem 2rem;
+    align-content: center; /* las img toman el centro del contenedor del main */
+}
+
+main .img-dos, .img-cinco {
+    display: none; /* para ocultar estos elementos */
+
+}
+
+main div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* objet-fit: me permite trabajar el comportamiento de las imágnes ..... cover hace que todas las img tomen la totalidad del espacio */ 
+}
+
+/* Estilos de Footer */
+footer {
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* mq de tablet */
+@media screen and (min-width:600px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 50%);
+    }
+
+    main .img-cuatro {
+        grid-column: span 2;
+    }
+}
+
+/* mq de desktop */
+@media screen and (min-width:1024px) {
+    main .img-dos, .img-cinco {
+        display: block; /* para volver a mostrar los elementos ocultos */
+    }
+    main {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 40% 40% 20%;
+    }
+
+    main .img-uno, .img-tres {
+        grid-row: span 2;
+    }
+    main .img-dos, main .img-cuatro {
+        grid-column: span 1;
+    }
+
+    main .img-cinco {
+        grid-column: span 3;
+    }
+}
